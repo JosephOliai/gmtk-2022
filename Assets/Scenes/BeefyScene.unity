@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 80
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1278340107}
   - component: {fileID: 1278340106}
   m_Layer: 0
-  m_Name: dice_right_down_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43329712bc3277648b9aa5a43cee9ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashDuration: 0.5
+  dashLeeway: 0.1
 --- !u!95 &1278340107
 Animator:
   serializedVersion: 3
