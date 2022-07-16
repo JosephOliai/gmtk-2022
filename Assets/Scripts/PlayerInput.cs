@@ -44,6 +44,7 @@ public class PlayerInput : MonoBehaviour
 
     public static void LeftMouseInput()
     {
+        PlayerShooting.OnLeftMouse();
     }
 
     public static void RightMouseInput()
