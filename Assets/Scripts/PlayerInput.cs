@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -44,10 +45,11 @@ public class PlayerInput : MonoBehaviour
 
     public static void LeftMouseInput()
     {
-        PlayerMovement.OnLeftMouse();
+        PlayerActionQueue.PlayerActionInput(new PlayerAction(PlayerActionType.shoot, Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue())));
     }
 
     public static void RightMouseInput()
     {
+        PlayerActionQueue.PlayerActionInput(new PlayerAction(PlayerActionType.move, Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue())));
     }
 }

@@ -10,6 +10,12 @@ public enum PlayerActionType
 
 public struct PlayerAction
 {
+    public PlayerAction(PlayerActionType playerActionType, Vector2 target)
+    {
+        this.playerActionType = playerActionType;
+        this.target = target;
+    }
+
     public PlayerActionType playerActionType;
     public Vector2 target;
 }
@@ -34,11 +40,14 @@ public class PlayerActionQueue : MonoBehaviour
 
     // Queue management code
     private Queue<PlayerAction> actionQueue;
+    private PlayerMovement playerMovement;
+
     private bool actionActive = false;
 
     private void Awake()
     {
         actionQueue = new Queue<PlayerAction>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Gets called any time the player presses the left or right mouse button
@@ -55,7 +64,8 @@ public class PlayerActionQueue : MonoBehaviour
             PlayerAction currentAction = actionQueue.Dequeue();
             if (currentAction.playerActionType == PlayerActionType.move)
             {
-                //TODO move
+                playerMovement.Move(currentAction.target);
+                actionActive = true;
             } else
             {
                 //TODO shoot
@@ -66,5 +76,10 @@ public class PlayerActionQueue : MonoBehaviour
     public void ClearActionQueue()
     {
         actionQueue.Clear();
+    }
+
+    public void ActionFinished()
+    {
+        actionActive = false;
     }
 }
