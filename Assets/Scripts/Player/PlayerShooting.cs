@@ -4,6 +4,13 @@ using UnityEngine;
 
 public struct ShotType
 {
+    public ShotType(int amount, GameObject bulletPrefab, int spreadInDegrees)
+    {
+        this.amount = amount;
+        this.bulletPrefab = bulletPrefab;
+        this.spreadInDegrees = spreadInDegrees;
+    }
+
     public int amount;
     public GameObject bulletPrefab;
     public int spreadInDegrees;
@@ -20,8 +27,7 @@ public class PlayerShooting : MonoBehaviour
     private void Awake()
     {
         shotTypes = new ShotType[1];
-        shotTypes[0].amount = 1;
-        shotTypes[0].bulletPrefab = Resources.Load<GameObject>("BaseBullet");
+        shotTypes[0] = new ShotType(10, Resources.Load<GameObject>("BaseBullet"), 60);
         RandomizeAndReloadBullet();
     }
 
@@ -43,12 +49,14 @@ public class PlayerShooting : MonoBehaviour
         shotLoaded = false;
         ShotType shotType = shotTypes[activeShotType];
         Vector2 shotDirection = (target - (Vector2) transform.position).normalized;
+        float halfShotSpread = shotType.spreadInDegrees / 2;
 
         for (int i = 0; i < shotType.amount; i++)
         {
             GameObject bulletObject = Instantiate(shotType.bulletPrefab, transform.position, Quaternion.identity);
             BaseBullet bulletScript = bulletObject.GetComponent<BaseBullet>();
-            bulletScript.Initialize(shotDirection, targetLayers);
+            Quaternion randomSpread = Quaternion.Euler(0, 0, Random.Range(0, shotType.spreadInDegrees) - halfShotSpread);
+            bulletScript.Initialize(randomSpread * shotDirection, targetLayers);
         }
     }
 }
