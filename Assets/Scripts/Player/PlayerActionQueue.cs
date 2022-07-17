@@ -67,7 +67,7 @@ public class PlayerActionQueue : MonoBehaviour
             {
                 playerMovement.Move(currentAction.target);
                 actionActive = true;
-            } else
+            } else // if playeractiontype = shoot
             {
                 playerShooting.Shoot(currentAction.target);
             }
