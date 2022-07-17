@@ -22,18 +22,25 @@ public class PlayerShooting : MonoBehaviour
         shotTypes = new ShotType[1];
         shotTypes[0].amount = 1;
         shotTypes[0].bulletPrefab = Resources.Load<GameObject>("BaseBullet");
-        RandomizeBullet();
+        RandomizeAndReloadBullet();
     }
 
-    public void RandomizeBullet()
+
+    public void RandomizeAndReloadBullet()
     {
+        shotLoaded = true;
         activeShotType = Random.Range(0, shotTypes.Length);
         // TODO: tell the sprite of the number on the dice to change and make the sprite appear
     }
 
     public void Shoot(Vector2 target)
     {
+        if (!shotLoaded)
+        {
+            return;
+        }
         // TODO: make the sprite of the number on top of the dice disappear
+        shotLoaded = false;
         ShotType shotType = shotTypes[activeShotType];
         Vector2 shotDirection = (target - (Vector2) transform.position).normalized;
 

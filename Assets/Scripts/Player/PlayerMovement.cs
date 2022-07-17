@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
     private PlayerActionQueue playerActionQueue;
+    private PlayerShooting playerShooting;
 
     private Vector2 targetPosition;
     private Vector2 previousPosition;
@@ -19,10 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        playerActionQueue = GetComponent<PlayerActionQueue>();
+        playerShooting = GetComponent<PlayerShooting>();
 
         dashDuration = dashDuration / Time.deltaTime;
         dashLeeway *= 100;
-        playerActionQueue = GetComponent<PlayerActionQueue>();
     }
 
     private void Update()
@@ -31,10 +33,11 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, Mathf.Abs(Mathf.Sqrt(Mathf.Pow(targetPosition.y - previousPosition.y, 2) + Mathf.Pow(targetPosition.x - previousPosition.x, 2)) / dashDuration));
         }
-        if (Vector2.Distance(transform.position, targetPosition) < dashLeeway)
+        if (rolling && Vector2.Distance(transform.position, targetPosition) < dashLeeway)
         {
             rolling = false;
             playerActionQueue.ActionFinished();
+            playerShooting.RandomizeAndReloadBullet();
             animator.SetBool("rolling", false);
         }
     }
