@@ -41,7 +41,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4600201522824374719}
@@ -72,7 +72,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3078544057904669230}
@@ -155,7 +155,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1443370949085421033}
@@ -238,7 +238,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4673746963632946043}
@@ -295,7 +295,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8019404404014473238}
@@ -352,7 +352,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5441497430545687137}
@@ -383,7 +383,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6417077215698032106}
@@ -414,7 +414,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4112538730318179280}
@@ -503,7 +503,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: attacking
+  - m_Name: shooting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -537,7 +537,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8253497081436667928}
@@ -568,7 +568,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6436598897481714942}
@@ -689,7 +689,7 @@ AnimatorStateTransition:
     m_ConditionEvent: direction
     m_EventTreshold: 4
   - m_ConditionMode: 1
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: rolling
@@ -723,7 +723,7 @@ AnimatorStateTransition:
     m_ConditionEvent: rolling
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: attacking
+    m_ConditionEvent: shooting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8417573240279866477}

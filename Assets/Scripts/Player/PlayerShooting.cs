@@ -23,14 +23,18 @@ public class PlayerShooting : MonoBehaviour
     private bool shotLoaded = true;
     private ShotType[] shotTypes;
     private int activeShotType = 0;
+    private Animator animator;
+    private Animator bulletAnimator;
+    private bool isShooting;
 
     private void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
+        //bulletAnimator = gameObject.GetComponentInChildren<Animator>();
         shotTypes = new ShotType[1];
         shotTypes[0] = new ShotType(10, Resources.Load<GameObject>("BaseBullet"), 60);
         RandomizeAndReloadBullet();
     }
-
 
     public void RandomizeAndReloadBullet()
     {
@@ -41,6 +45,10 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot(Vector2 target)
     {
+        transform.GetChild(0).gameObject.SetActive(true);
+        isShooting = true;
+        animator.SetBool("shooting", isShooting);
+
         if (!shotLoaded)
         {
             return;
@@ -58,5 +66,12 @@ public class PlayerShooting : MonoBehaviour
             Quaternion randomSpread = Quaternion.Euler(0, 0, Random.Range(0, shotType.spreadInDegrees) - halfShotSpread);
             bulletScript.Initialize(randomSpread * shotDirection, targetLayers);
         }
+        //bulletAnimator.Play("bang");
+    }
+
+    public void StopShooting() {
+        //transform.GetChild(0).gameObject.SetActive(false);
+        isShooting = false;
+        animator.SetBool("shooting", isShooting);
     }
 }
