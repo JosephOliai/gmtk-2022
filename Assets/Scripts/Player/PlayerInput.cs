@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
+    // Singleton code
+    #region singleton code
     private static PlayerInput _instance;
     public static PlayerInput Instance { get { return _instance; } }
 
-    [HideInInspector] public Controls controls;
     private bool wasInstance = false;
 
     private void Awake()
@@ -23,6 +24,10 @@ public class PlayerInput : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    #endregion
+
+    // Input handling code
+    [HideInInspector] public Controls controls;
 
     private void Start()
     {

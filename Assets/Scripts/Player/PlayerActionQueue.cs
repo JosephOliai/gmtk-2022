@@ -41,13 +41,14 @@ public class PlayerActionQueue : MonoBehaviour
     // Queue management code
     private Queue<PlayerAction> actionQueue;
     private PlayerMovement playerMovement;
-
+    private PlayerShooting playerShooting;
     private bool actionActive = false;
 
     private void Awake()
     {
         actionQueue = new Queue<PlayerAction>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerShooting = GetComponent<PlayerShooting>();
     }
 
     // Gets called any time the player presses the left or right mouse button
@@ -68,7 +69,7 @@ public class PlayerActionQueue : MonoBehaviour
                 actionActive = true;
             } else
             {
-                //TODO shoot
+                playerShooting.Shoot(currentAction.target);
             }
         }
     }
