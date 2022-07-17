@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private PlayerActionQueue playerActionQueue;
     private PlayerShooting playerShooting;
+    [SerializeField] private RollTable rollTable;
 
     private Vector2 targetPosition;
     private Vector2 previousPosition;
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector2 targetPosition)
     {
+        rollTable.Spin();
         previousPosition = transform.position;
         rolling = true;
         animator.SetBool("rolling", true);
