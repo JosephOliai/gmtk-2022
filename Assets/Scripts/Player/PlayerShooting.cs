@@ -45,13 +45,12 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot(Vector2 target)
     {
-        transform.GetChild(0).gameObject.SetActive(true);
-
         if (!shotLoaded)
         {
             return;
         }
         isShooting = true;
+        transform.GetChild(0).gameObject.SetActive(true);
         animator.SetBool("shooting", isShooting);
 
         // TODO: make the sprite of the number on top of the dice disappear
@@ -71,7 +70,7 @@ public class PlayerShooting : MonoBehaviour
     }
 
     public void StopShooting() {
-        //transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
         isShooting = false;
         animator.SetBool("shooting", isShooting);
     }
