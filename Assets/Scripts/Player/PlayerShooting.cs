@@ -56,7 +56,7 @@ public class PlayerShooting : MonoBehaviour
             GameObject bulletObject = Instantiate(shotType.bulletPrefab, transform.position, Quaternion.identity);
             BaseBullet bulletScript = bulletObject.GetComponent<BaseBullet>();
             Quaternion randomSpread = Quaternion.Euler(0, 0, Random.Range(0, shotType.spreadInDegrees) - halfShotSpread);
-            bulletScript.Initialize(randomSpread * shotDirection, targetLayers);
+            bulletScript.Initialize(randomSpread * shotDirection, targetLayers, Color.green);
         }
     }
 }

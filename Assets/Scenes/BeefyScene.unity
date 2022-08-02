@@ -301,11 +301,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033225c4532356143ad09dcefd1a6f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3819301098978227345, guid: 214ddb94a5f3efa468ae6dcaf7c0ff48, type: 3}
   shootTime: 0.5
   dashTime: 1
   dashDistance: 70
   dashDuration: 1
   dashToPlayerRange: 100
+  spreadInDegrees: 0
 --- !u!1 &1278340105
 GameObject:
   m_ObjectHideFlags: 0
