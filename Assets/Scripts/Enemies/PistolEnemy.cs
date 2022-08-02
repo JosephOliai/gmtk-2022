@@ -19,9 +19,12 @@ public class PistolEnemy : MonoBehaviour
     private Vector2 dashDirection = Vector2.zero;
     private int bullets = 1;
     private LayerMask targetLayers;
+    private Animator animator;
+    private int direction = 2;
 
     private void Awake()
     {
+        animator = gameObject.GetComponent<Animator>();
         player = FindObjectOfType<PlayerActionQueue>().transform;
         dashSpeed = dashDistance / dashDuration;
         targetLayers = player.gameObject.layer;
@@ -55,6 +58,7 @@ public class PistolEnemy : MonoBehaviour
     private void Shoot()
     {
         hasBullet = false;
+        animator.SetBool("isShooting", true);
 
         Vector2 shotDirection = (player.position - transform.position).normalized;
         float halfShotSpread = spreadInDegrees / 2;
@@ -68,23 +72,67 @@ public class PistolEnemy : MonoBehaviour
         }
     }
 
+    public void SetIdle(int direction)
+    {
+        animator.SetInteger("Direction", direction);
+        animator.SetBool("isShooting", false);
+    }
+
     private void StartDash()
     {
         dashing = true;
+        animator.SetBool("isRoling", dashing);
         if (Vector2.Distance(player.position, transform.position) > dashToPlayerRange)
         {
             dashDirection = (player.position - transform.position).normalized;
+            setDirection(dashDirection);
         }
         else
         {
             dashDirection = (Quaternion.Euler(0, 0, 65) * (player.position - transform.position).normalized);
+            setDirection(dashDirection);
         }
+    }
+
+    private void setDirection(Vector2 direction)
+    {
+        float angle = Vector2.SignedAngle(direction, transform.up);
+
+        if (angle < 0) angle = 360 - angle * -1;
+
+        print(angle);
+        if (angle >= 0 && angle < 90)
+        {
+            // right up
+            this.direction = 4;
+        }
+        if (angle >= 90 && angle < 180)
+        {
+            // right down
+            this.direction = 3;
+        }
+        if (angle >= 180 && angle < 270)
+        {
+            // left down
+            this.direction = 2;
+        }
+        if (angle >= 270 && angle < 360)
+        {
+            // left up
+            this.direction = 1;
+        }
+        print(this.direction);
+        animator.SetInteger("Direction", this.direction);
     }
 
     private void EndDash()
     {
+        Vector2 tempDirection = (player.position - transform.position).normalized;
+        setDirection(tempDirection);
+
         hasBullet = true;
         dashing = false;
+        animator.SetBool("isRoling", dashing);
         dashTimer = 0f;
         bullets = Random.Range(1, 7);
     }
