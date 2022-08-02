@@ -46,13 +46,14 @@ public class PlayerShooting : MonoBehaviour
     public void Shoot(Vector2 target)
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        isShooting = true;
-        animator.SetBool("shooting", isShooting);
 
         if (!shotLoaded)
         {
             return;
         }
+        isShooting = true;
+        animator.SetBool("shooting", isShooting);
+
         // TODO: make the sprite of the number on top of the dice disappear
         shotLoaded = false;
         ShotType shotType = shotTypes[activeShotType];
@@ -64,7 +65,7 @@ public class PlayerShooting : MonoBehaviour
             GameObject bulletObject = Instantiate(shotType.bulletPrefab, transform.position, Quaternion.identity);
             BaseBullet bulletScript = bulletObject.GetComponent<BaseBullet>();
             Quaternion randomSpread = Quaternion.Euler(0, 0, Random.Range(0, shotType.spreadInDegrees) - halfShotSpread);
-            bulletScript.Initialize(randomSpread * shotDirection, targetLayers);
+            bulletScript.Initialize(randomSpread * shotDirection, targetLayers, Color.green);
         }
         //bulletAnimator.Play("bang");
     }

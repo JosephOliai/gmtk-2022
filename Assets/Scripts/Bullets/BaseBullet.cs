@@ -7,6 +7,7 @@ public class BaseBullet : MonoBehaviour
     [SerializeField] private float speed = 1f;
     private Vector2 direction = Vector2.zero;
     private LayerMask target;
+    private new SpriteRenderer renderer;
     
     // Timers for removing the bullet once its out of the screen
     private float startTime = 0f;
@@ -15,12 +16,14 @@ public class BaseBullet : MonoBehaviour
     private void Awake()
     {
         startTime = Time.time;
+        renderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Initialize(Vector2 direction, LayerMask target)
+    public void Initialize(Vector2 direction, LayerMask target, Color color = new Color())
     {
         this.direction = direction;
         this.target = target;
+        renderer.color = color;
     }
 
     private void FixedUpdate()
