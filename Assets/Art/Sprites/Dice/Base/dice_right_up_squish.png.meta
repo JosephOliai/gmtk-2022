@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: ee1cd2cd1419b864084af8cd1e5fe9ba
+guid: 5b72c462835ef154daa122c11dbc06f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4284515441024767702
-    second: dice_left_down_squish_0
+      213: -6911253383509941251
+    second: dice_right_up_squish_0
   - first:
-      213: -5748903560850434819
-    second: dice_left_down_squish_1
+      213: 8788135060714105421
+    second: dice_right_up_squish_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dice_left_down_squish_0
+      name: dice_right_up_squish_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d615f0e718a57b30800000000000000
-      internalID: 4284515441024767702
+      spriteID: df36c234aab4610a0800000000000000
+      internalID: -6911253383509941251
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dice_left_down_squish_1
+      name: dice_right_up_squish_1
       rect:
         serializedVersion: 2
         x: 28
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4188f9baac730b0800000000000000
-      internalID: -5748903560850434819
+      spriteID: d4a2504b64ab5f970800000000000000
+      internalID: 8788135060714105421
       vertices: []
       indices: 
       edges: []

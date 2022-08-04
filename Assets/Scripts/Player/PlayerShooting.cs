@@ -25,21 +25,28 @@ public class PlayerShooting : MonoBehaviour
     private int activeShotType = 0;
     private Animator animator;
     private Animator bulletAnimator;
-    private bool isShooting;
+    [HideInInspector] public bool isShooting;
+    [SerializeField] private RollTable rollTable;
 
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
         //bulletAnimator = gameObject.GetComponentInChildren<Animator>();
-        shotTypes = new ShotType[1];
-        shotTypes[0] = new ShotType(10, Resources.Load<GameObject>("BaseBullet"), 60);
+        shotTypes = new ShotType[6];
+        shotTypes[0] = new ShotType(1, Resources.Load<GameObject>("BaseBullet"), 0);
+        shotTypes[1] = new ShotType(2, Resources.Load<GameObject>("BaseBullet"), 10);
+        shotTypes[2] = new ShotType(3, Resources.Load<GameObject>("BaseBullet"), 20);
+        shotTypes[3] = new ShotType(4, Resources.Load<GameObject>("BaseBullet"), 30);
+        shotTypes[4] = new ShotType(5, Resources.Load<GameObject>("BaseBullet"), 40);
+        shotTypes[5] = new ShotType(6, Resources.Load<GameObject>("BaseBullet"), 50);
         RandomizeAndReloadBullet();
     }
 
     public void RandomizeAndReloadBullet()
     {
         shotLoaded = true;
-        activeShotType = Random.Range(0, shotTypes.Length);
+        activeShotType = rollTable.diceNumber;
+        // activeShotType = Random.Range(0, shotTypes.Length);
         // TODO: tell the sprite of the number on the dice to change and make the sprite appear
     }
 

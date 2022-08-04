@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private PlayerActionQueue playerActionQueue;
     private PlayerShooting playerShooting;
     [SerializeField] private RollTable rollTable;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         playerActionQueue = GetComponent<PlayerActionQueue>();
         playerShooting = GetComponent<PlayerShooting>();
 
@@ -41,6 +43,43 @@ public class PlayerMovement : MonoBehaviour
             playerShooting.RandomizeAndReloadBullet();
             animator.SetBool("rolling", false);
         }
+
+        changeDirection(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+    }
+
+    private void changeDirection(Vector2 targetPosition) {
+        if (!rolling && !playerShooting.isShooting) {
+            float angle = (Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * 180) / Mathf.PI;
+
+            if (angle < 0) angle += 360f;
+
+            if (angle >= 0 && angle < 90)
+            {
+                print("right up");
+                direction = 0;
+                spriteRenderer.flipX = false;
+            }
+            if (angle >= 90 && angle < 180)
+            {
+                print("left up");
+                direction = 0;
+                spriteRenderer.flipX = true;
+            }
+            if (angle >= 180 && angle < 270)
+            {
+                print("left down");
+                direction = 1;
+                spriteRenderer.flipX = true;
+            }
+            if (angle >= 270 && angle < 360)
+            {
+                print("right down");
+                direction = 1;
+                spriteRenderer.flipX = false;
+            }
+
+            animator.SetInteger("direction", direction);
+        }
     }
 
     public void Move(Vector2 targetPosition)
@@ -50,32 +89,5 @@ public class PlayerMovement : MonoBehaviour
         rolling = true;
         animator.SetBool("rolling", true);
         this.targetPosition = targetPosition;
-
-        // animation
-        float angle = (Mathf.Atan2(targetPosition.y - transform.position.y, targetPosition.x - transform.position.x) * 180) / Mathf.PI;
-        if (angle < 0) angle += 360f;
-
-        if (angle >= 0 && angle < 90)
-        {
-            print("right up");
-            direction = 4;
-        }
-        if (angle >= 90 && angle < 180)
-        {
-            print("left up");
-            direction = 3;
-        }
-        if (angle >= 180 && angle < 270)
-        {
-            print("left down");
-            direction = 2;
-        }
-        if (angle >= 270 && angle < 360)
-        {
-            print("right down");
-            direction = 1;
-        }
-
-        animator.SetInteger("direction", direction);
     }
 }

@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: b8d70fe668770384e96236b2d0095f35
+guid: ede9b07c3f2d9f241a626c70ef4566e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5879753863678039764
-    second: dice_right_down_squish_0
+      213: 7017342196401301136
+    second: dice_right_up_roll_0
   - first:
-      213: 683903969538404642
-    second: dice_right_down_squish_1
+      213: -6072397686678996164
+    second: dice_right_up_roll_1
+  - first:
+      213: -949131392108636772
+    second: dice_right_up_roll_2
+  - first:
+      213: -8651052448488298818
+    second: dice_right_up_roll_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +54,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -121,12 +127,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dice_right_down_squish_0
+      name: dice_right_up_roll_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 28
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -135,19 +141,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c296db4630be66ea0800000000000000
-      internalID: -5879753863678039764
+      spriteID: 096ebd35c8b926160800000000000000
+      internalID: 7017342196401301136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dice_right_down_squish_1
+      name: dice_right_up_roll_1
       rect:
         serializedVersion: 2
-        x: 28
+        x: 32
         y: 0
-        width: 28
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -156,8 +162,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221f0dc6907bd7900800000000000000
-      internalID: 683903969538404642
+      spriteID: c3b38961a728abba0800000000000000
+      internalID: -6072397686678996164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dice_right_up_roll_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c955130170204d2f0800000000000000
+      internalID: -949131392108636772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dice_right_up_roll_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6e49222a941f780800000000000000
+      internalID: -8651052448488298818
       vertices: []
       indices: 
       edges: []

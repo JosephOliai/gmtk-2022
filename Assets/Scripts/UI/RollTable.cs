@@ -32,8 +32,9 @@ public class RollTable : MonoBehaviour
         isSpinning = 0;
         animator.SetInteger("spinning", isSpinning);
 
-        diceNumber = Random.Range(1, 7);
-        diceText.SetText(diceNumber.ToString());
+        diceNumber = Random.Range(0, 6);
+        int tempNumber = diceNumber + 1;
+        diceText.SetText(tempNumber.ToString());
 
         textObject.SetActive(true);
         transform.position = startPosition;
