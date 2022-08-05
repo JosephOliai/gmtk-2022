@@ -28,12 +28,15 @@ public class RollTable : MonoBehaviour
         animator.SetInteger("spinning", isSpinning);
     }
 
+    public void SetNumber(int number) {
+        diceNumber = number;
+    }
+
     public void StopSpinning() {
         isSpinning = 0;
         animator.SetInteger("spinning", isSpinning);
 
-        diceNumber = Random.Range(0, 6);
-        int tempNumber = diceNumber + 1;
+        int tempNumber = diceNumber;
         diceText.SetText(tempNumber.ToString());
 
         textObject.SetActive(true);

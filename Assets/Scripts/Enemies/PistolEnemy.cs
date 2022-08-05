@@ -100,7 +100,7 @@ public class PistolEnemy : MonoBehaviour
 
         if (angle < 0) angle = 360 - angle * -1;
 
-        print(angle);
+        //print(angle);
         if (angle >= 0 && angle < 90)
         {
             // right up
@@ -121,7 +121,7 @@ public class PistolEnemy : MonoBehaviour
             // left up
             this.direction = 1;
         }
-        print(this.direction);
+        //print(this.direction);
         animator.SetInteger("Direction", this.direction);
     }
 

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashDuration = 0.33f;
     [SerializeField] private float dashLeeway = 0.2f;
+    public int diceNumber = 3;
 
     private void Awake()
     {
@@ -55,25 +56,25 @@ public class PlayerMovement : MonoBehaviour
 
             if (angle >= 0 && angle < 90)
             {
-                print("right up");
+                //print("right up");
                 direction = 0;
                 spriteRenderer.flipX = false;
             }
             if (angle >= 90 && angle < 180)
             {
-                print("left up");
+                //print("left up");
                 direction = 0;
                 spriteRenderer.flipX = true;
             }
             if (angle >= 180 && angle < 270)
             {
-                print("left down");
+                //print("left down");
                 direction = 1;
                 spriteRenderer.flipX = true;
             }
             if (angle >= 270 && angle < 360)
             {
-                print("right down");
+                //print("right down");
                 direction = 1;
                 spriteRenderer.flipX = false;
             }
@@ -85,9 +86,17 @@ public class PlayerMovement : MonoBehaviour
     public void Move(Vector2 targetPosition)
     {
         rollTable.Spin();
+        setNumber(Random.Range(0, 6));
         previousPosition = transform.position;
         rolling = true;
         animator.SetBool("rolling", true);
         this.targetPosition = targetPosition;
+    }
+
+    public void setNumber(int number) {
+        diceNumber = number;
+
+        animator.SetInteger("number", diceNumber + 1);
+        rollTable.SetNumber(diceNumber + 1);
     }
 }
