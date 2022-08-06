@@ -27,8 +27,13 @@ public class PlayerMovement : MonoBehaviour
         playerActionQueue = GetComponent<PlayerActionQueue>();
         playerShooting = GetComponent<PlayerShooting>();
 
-        dashDuration = dashDuration / Time.deltaTime;
+        dashDuration = dashDuration / 0.016f;
         dashLeeway *= 100;
+    }
+
+    private void Start()
+    {
+        setNumber(Random.Range(0, 6));
     }
 
     private void Update()

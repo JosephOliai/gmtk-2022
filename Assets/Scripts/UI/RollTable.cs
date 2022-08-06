@@ -30,14 +30,12 @@ public class RollTable : MonoBehaviour
 
     public void SetNumber(int number) {
         diceNumber = number;
+        diceText.SetText(diceNumber.ToString());
     }
 
     public void StopSpinning() {
         isSpinning = 0;
         animator.SetInteger("spinning", isSpinning);
-
-        int tempNumber = diceNumber;
-        diceText.SetText(tempNumber.ToString());
 
         textObject.SetActive(true);
         transform.position = startPosition;

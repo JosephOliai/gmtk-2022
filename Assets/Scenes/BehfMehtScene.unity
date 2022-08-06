@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollTable: {fileID: 589484931}
-  dashDuration: 3
+  dashDuration: 1
   dashLeeway: 0.1
   diceNumber: 3
 --- !u!114 &1552508867
