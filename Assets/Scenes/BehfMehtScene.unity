@@ -737,7 +737,7 @@ GameObject:
   - component: {fileID: 1552508867}
   - component: {fileID: 1552508866}
   - component: {fileID: 1552508865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   isShooting: 0
 --- !u!114 &1552508866
 MonoBehaviour:
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollTable: {fileID: 589484931}
-  dashDuration: 1
+  dashDuration: 3
   dashLeeway: 0.1
   diceNumber: 3
 --- !u!114 &1552508867
