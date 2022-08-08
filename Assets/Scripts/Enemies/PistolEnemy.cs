@@ -20,14 +20,18 @@ public class PistolEnemy : MonoBehaviour
     private int bullets = 1;
     private LayerMask targetLayers;
     private Animator animator;
-    private int direction = 2;
+    private SpriteRenderer spriteRenderer;
+    private int direction = 1;
 
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerActionQueue>().transform;
         dashSpeed = dashDistance / dashDuration;
         targetLayers = player.gameObject.layer;
+
+        setDirection(player.transform.position);
     }
 
     private void FixedUpdate()
@@ -104,22 +108,26 @@ public class PistolEnemy : MonoBehaviour
         if (angle >= 0 && angle < 90)
         {
             // right up
-            this.direction = 4;
+            this.direction = 1;
+            spriteRenderer.flipX = false;
         }
         if (angle >= 90 && angle < 180)
         {
             // right down
-            this.direction = 3;
+            this.direction = 0;
+            spriteRenderer.flipX = false;
         }
         if (angle >= 180 && angle < 270)
         {
             // left down
-            this.direction = 2;
+            this.direction = 0;
+            spriteRenderer.flipX = true;
         }
         if (angle >= 270 && angle < 360)
         {
             // left up
             this.direction = 1;
+            spriteRenderer.flipX = true;
         }
         //print(this.direction);
         animator.SetInteger("Direction", this.direction);
