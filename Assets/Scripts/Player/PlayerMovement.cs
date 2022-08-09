@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float dashDuration = 0.33f;
     [SerializeField] private float dashLeeway = 0.2f;
-    public int diceNumber = 3;
+    [HideInInspector] public int diceNumber = 3;
 
     private void Awake()
     {

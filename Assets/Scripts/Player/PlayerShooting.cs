@@ -46,7 +46,7 @@ public class PlayerShooting : MonoBehaviour
     public void RandomizeAndReloadBullet()
     {
         shotLoaded = true;
-        print(playerMovement.diceNumber);
+        //print(playerMovement.diceNumber);
         activeShotType = playerMovement.diceNumber;
         // activeShotType = Random.Range(0, shotTypes.Length);
         // TODO: tell the sprite of the number on the dice to change and make the sprite appear
