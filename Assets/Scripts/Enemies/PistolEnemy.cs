@@ -29,7 +29,7 @@ public class PistolEnemy : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = FindObjectOfType<PlayerActionQueue>().transform;
         dashSpeed = dashDistance / dashDuration;
-        targetLayers = player.gameObject.layer;
+        targetLayers = 1 << player.gameObject.layer;
 
         setDirection(player.transform.position);
     }
