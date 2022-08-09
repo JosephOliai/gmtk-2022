@@ -37,13 +37,16 @@ public class BaseBullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if ((target.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            TargetHit();
+        }
     }
 
     virtual protected void TargetHit()
     {
-
+        print("hit!");
     }
 }
